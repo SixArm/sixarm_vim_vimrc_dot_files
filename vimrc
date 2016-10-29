@@ -1,21 +1,21 @@
-“ vimrc with annotations
-“
-“ This is my VIM configuration file with annotations for newcomers.
-“
-“ This file is generally organized like this:
-“
-“   * Basics: text, tab, search, window, bell, etc.
-“   * Interactions: terminals, mice, colors, etc.
-“   * Files: read/write, fle type handlers, etc.
-“   * Externals: spell check, mutt mail, etc.
-“   * Maps  
-“
-“ Thanks:
-“   * http://www.stat.rice.edu/~helpdesk/dotfiles/.vimrc.html
-“   * http://www.oualline.com/vim/10/vimrc.html
+" vimrc with annotations
+"
+" This is my VIM configuration file with annotations for newcomers.
+"
+" This file is generally organized like this:
+"
+"   * Basics: text, tab, search, window, bell, etc.
+"   * Interactions: terminals, mice, colors, etc.
+"   * Files: read/write, fle type handlers, etc.
+"   * Externals: spell check, mutt mail, etc.
+"   * Maps  
+"
+" Thanks:
+"   * http://www.stat.rice.edu/~helpdesk/dotfiles/.vimrc.html
+"   * http://www.oualline.com/vim/10/vimrc.html
 
 
-“ DO ME FIRST
+" DO ME FIRST
 
 " We want VIM features, not VI compatible features.
 set nocompatible  
@@ -37,50 +37,50 @@ set nojoinspaces
 " Don't append carriage returns
 set notextmode     
 
-“ Turn on syntax highlighting
+" Turn on syntax highlighting
 :syntax on
 
-“ Turn on automatic indentation. This copies the indent from the current line when starting a new line.
-“set autoindent
+" Turn on automatic indentation. This copies the indent from the current line when starting a new line.
+"set autoindent
 
 
-“ TAB SETTINGS
+" TAB SETTINGS
 
-“ tabstop: the width of a hard tabstop measured in "spaces" -- effectively the (maximum) width of an actual tab character.
+" tabstop: the width of a hard tabstop measured in "spaces" -- effectively the (maximum) width of an actual tab character.
 set tabstop=2
 
-“ shiftwidth: the size of an "indent". It's also measured in spaces, so if your code base indents with tab characters then you want shiftwidth to equal the number of tab characters times tabstop. This is also used by things like the =, > and < commands.
+" shiftwidth: the size of an "indent". It's also measured in spaces, so if your code base indents with tab characters then you want shiftwidth to equal the number of tab characters times tabstop. This is also used by things like the =, > and < commands.
 set shiftwidth=2
 
-“ softtabstop: makes the tab key (in insert mode) insert a combination of spaces (and possibly tabs) to simulate tab stops at this width. We prefer the default.
+" softtabstop: makes the tab key (in insert mode) insert a combination of spaces (and possibly tabs) to simulate tab stops at this width. We prefer the default.
 set softtabstop=0 
 
-“ expandtab: enabling this will make the tab key (in insert mode) insert spaces instead of tab characters. This also affects the behavior of the retab command. We prefer the default.
+" expandtab: enabling this will make the tab key (in insert mode) insert spaces instead of tab characters. This also affects the behavior of the retab command. We prefer the default.
 set noexpandtab
 
-“ smarttab: Enabling this will make the tab key (in insert mode) insert spaces or tabs to go to the next indent of the next tabstop when the cursor is at the beginning of a line (ie: the only preceding characters are whitespace).
+" smarttab: Enabling this will make the tab key (in insert mode) insert spaces or tabs to go to the next indent of the next tabstop when the cursor is at the beginning of a line (ie: the only preceding characters are whitespace).
 set smarttab
 
 
-“ SEARCH SETTINGS
+" SEARCH SETTINGS
 
-“ Do incremental search. Beware! Only for fast terminals.
+" Do incremental search. Beware! Only for fast terminals.
 :set incsearch
 
-“ Highlight the target of a search. 
+" Highlight the target of a search. 
 :set hlsearch
 
 " Ignore case in search patterns.
 set ignorecase
 
 
-“ WINDOW SETTINGS
+" WINDOW SETTINGS
 
 " Allow to switch between buffers/windows when the buffer was modified
 set hidden         
 
 
-“ BELL SETTINGS
+" BELL SETTINGS
 
 " Disable the visual bell blinker because it’s distracting.
 set novisualbell  
@@ -137,34 +137,34 @@ syntax on
 
 
 " Status line is bright white on blue; please note fg/bg is reverse for term mode
-“ highlight StatusLine cterm=bold ctermfg=white ctermbg=blue
+" highlight StatusLine cterm=bold ctermfg=white ctermbg=blue
 
 
-“ SAVE SETTINGS
+" SAVE SETTINGS
 
-“ Automatically write files as needed.
+" Automatically write files as needed.
 :set autowrite
 
 " Do not make a backup before overwriting a file
 :set nobackup      
 
 
-“ FILE TYPE SETTINGS
+" FILE TYPE SETTINGS
 
-“ For all files:
-“   * set the format options
-“   * turn of C indentation
-“   * set the comments option to the default
+" For all files:
+"   * set the format options
+"   * turn of C indentation
+"   * set the comments option to the default
 :autocmd FileType *      set formatoptions=tcql nocindent comments&
 
-“ For all C and C++ files:
-“   * set the format options
-“   * turn on C indentation
-“   * set the comments option.
+" For all C and C++ files:
+"   * set the format options
+"   * turn on C indentation
+"   * set the comments option.
 :autocmd FileType c,cpp  set formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
 
 
-“ EXTERNAL SPELL CHECK
+" EXTERNAL SPELL CHECK
 
 source ~/.vim.ispell
 
@@ -172,9 +172,9 @@ map <C-k>   :let @_=SpellCheck()<cr>
 map! <C-k>  <ESC>:let @_=SpellCheck()<cr>i
 
 
-“ EXTERNAL PROGRAMS
+" EXTERNAL PROGRAMS
 
-“ Connect to mutt email reader
+" Connect to mutt email reader
 autocmd BufRead /tmp/mutt* :source ~/.vim.mail
 
 
@@ -183,20 +183,20 @@ autocmd BufRead /tmp/mutt* :source ~/.vim.mail
 " Make # keep it's normal indentation so it works as a comment
 inoremap # X^H#
 
-“ Add emacs-style navigation for home, end, suspend.
+" Add emacs-style navigation for home, end, suspend.
 map <C-A> <Home>
 map <C-E> <End>
 map <C-Z> :shell<CR>
 
-“ F2: write
+" F2: write
 map    <F2>   :w<CR>
 map!   <F2>   <ESC>:w<CR>i
 
-“ F3: exit
+" F3: exit
 map    <F3>   ZZ
 map!   <F3>   <ESC>ZZ
 
-“ F4: quit
+" F4: quit
 map    <F4>   :q!<CR>
 map!   <F4>   <ESC>:q!<CR>
 
@@ -219,7 +219,7 @@ endif
 
 
 
-“””” TODO: Annotate everything below into our preferred usage “”””
+"””” TODO: Annotate everything below into our preferred usage "”””
 
 " Generic/interface settings
 set showbread=+\   " Precede continued screen lines
@@ -260,16 +260,16 @@ set winminheight=0 " Allow zero-height windows
 set ts=4
 
 
-“ TODO
+" TODO
 set ttymouse=xterm " Use mouse
 set number         " Set number of lines.
 
 
-“ TODO
+" TODO
 :set notextmode
 :set notextauto
 
-“ Set the width of text to 70 characters.
+" Set the width of text to 70 characters.
 :set textwidth=70
 
 
@@ -320,8 +320,8 @@ autocmd FileType css set smartindent
 
 
 " Makefiles:
-“   * Must use tabs, so don't expand tabs to spaces.
-“   * Have indentation at 8 chars to be sure that all indents are tabs, despite the mappings later.
+"   * Must use tabs, so don't expand tabs to spaces.
+"   * Have indentation at 8 chars to be sure that all indents are tabs, despite the mappings later.
 autocmd FileType make set noexpandtab shiftwidth=8
 
 " I like highlighting strings inside C comments
