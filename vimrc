@@ -1,6 +1,6 @@
 " vimrc with annotations
 "
-" This is my VIM configuration file with annotations for newcomers.
+" This is our VIM configuration file with annotations for newcomers.
 "
 " This file is generally organized like this:
 "
@@ -8,7 +8,7 @@
 "   * Interactions: terminals, mice, colors, etc.
 "   * Files: read/write, fle type handlers, etc.
 "   * Externals: spell check, mutt mail, etc.
-"   * Maps  
+"   * Maps
 "
 " Thanks:
 "   * http://www.stat.rice.edu/~helpdesk/dotfiles/.vimrc.html
@@ -19,7 +19,6 @@
 
 " We want VIM features, not VI compatible features.
 set nocompatible  
-
 
 
 " TEXT SETTINGS
