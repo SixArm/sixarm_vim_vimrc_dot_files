@@ -23,6 +23,8 @@ set nocompatible
 
 " TEXT SETTINGS
 
+# Use Unicode text encoding.
+set encoding=utf-8
 
 " Maximum width of text that is being inserted. A longer line will be broken. Zero disables this.
 set textwidth=72   
@@ -40,7 +42,7 @@ set notextmode
 :syntax on
 
 " Turn on automatic indentation. This copies the indent from the current line when starting a new line.
-"set autoindent
+set autoindent
 
 
 " TAB SETTINGS
