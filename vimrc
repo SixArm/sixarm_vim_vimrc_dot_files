@@ -265,7 +265,6 @@ endif
 "””” TODO: Annotate everything below into our preferred usage "”””
 
 " Generic/interface settings
-set showbread=+\   " Precede continued screen lines
 set comments=b:#,:%,fb:-,n:>,n:)b:\"n:: " Comments may start with these chars: #%>":
 set noendofline    " No <EOL> will be written for the last line in the file
 set equalprg=fmt   " External program to use for "=" command
