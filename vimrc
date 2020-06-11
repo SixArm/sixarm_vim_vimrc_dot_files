@@ -18,7 +18,7 @@
 " DO ME FIRST
 
 " We want VIM features, not VI compatible features.
-set nocompatible  
+set nocompatible
 
 
 " TEXT SETTINGS
@@ -27,16 +27,16 @@ set nocompatible
 set encoding=utf-8
 
 " Maximum width of text that is being inserted. A longer line will be broken. Zero disables this.
-set textwidth=72   
+set textwidth=72
 
 " Backspace over indent, eol, start
-set backspace=2    
+set backspace=2
 
 " Do not insert two spaces after a '.', '?' and '!' with a join command
-set nojoinspaces   
+set nojoinspaces
 
 " Don't append carriage returns
-set notextmode     
+set notextmode
 
 " Turn on syntax highlighting
 :syntax on
@@ -54,7 +54,7 @@ set tabstop=2
 set shiftwidth=2
 
 " softtabstop: makes the tab key (in insert mode) insert a combination of spaces (and possibly tabs) to simulate tab stops at this width. We prefer the default.
-set softtabstop=0 
+set softtabstop=0
 
 " expandtab: enabling this will make the tab key (in insert mode) insert spaces instead of tab characters. This also affects the behavior of the retab command. We prefer the default.
 set noexpandtab
@@ -68,7 +68,7 @@ set smarttab
 " Do incremental search. Beware! Only for fast terminals.
 :set incsearch
 
-" Highlight the target of a search. 
+" Highlight the target of a search.
 :set hlsearch
 
 " Ignore case in search patterns.
@@ -78,16 +78,16 @@ set ignorecase
 " WINDOW SETTINGS
 
 " Allow to switch between buffers/windows when the buffer was modified
-set hidden         
+set hidden
 
 
 " BELL SETTINGS
 
 " Disable the visual bell blinker because it’s distracting.
-set novisualbell  
+set novisualbell
 
 " Disable the audio bell sound because it’s distracting.
-set noerrorbells  
+set noerrorbells
 
 
 " TERMINALS, MICE, COLORS
@@ -96,7 +96,7 @@ set noerrorbells
 set ttyfast
 
 " Use mouse in all modes, plus hit-return
-set mouse=ar      
+set mouse=ar
 
 " Set beahviour to xterm, not mswin
 behave xterm
@@ -147,7 +147,7 @@ syntax on
 :set autowrite
 
 " Do not make a backup before overwriting a file
-:set nobackup      
+:set nobackup
 
 
 " FILE TYPE SETTINGS
@@ -163,6 +163,48 @@ syntax on
 "   * turn on C indentation
 "   * set the comments option.
 :autocmd FileType c,cpp  set formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
+
+
+" NETRW DIRECTORY BROWSER
+
+" Make netrw behave like NERDtree
+" http://ellengummesson.com/blog/2014/02/22/make-vim-really-behave-like-netrw/
+
+" Omit the top banner because we
+" prefer content to the banner info
+let g:netrw_banner = 0
+
+" How to show the file list:
+"  * 0 = thin
+"  * 1 = long
+"  * 2 = wide
+"  * 3 = tree
+let g:netrw_liststyle = 3
+
+" How to open files:
+"   * 1 = open files in a new horizontal split
+"   * 2 = open files in a new vertical split
+"   * 3 = open files in a new tab
+"   * 4 = open in previous window
+let g:netrw_browse_split = 4
+
+" Set the width of the file browser
+" to a percentage of the page
+let g:netrw_winsize = 25
+
+" When a file is opened, split the window vertically
+" with the new window and cursor at the right
+let g:netrw_altv = 1
+
+" Inherit any custom wildignore
+let g:netrw_list_hide = &wildignore
+
+" Launch when you start vi, by mapping the
+" command to the VimEnter autocommand
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Vexplore
+augroup END
 
 
 " EXTERNAL SPELL CHECK
@@ -280,7 +322,7 @@ set number         " Set number of lines.
 let html_number_lines = 0
 let html_use_css = 1
 " Comment: Run from a Unix shell
-" Comment: 
+" Comment:
 "   for f in *.[ch]; do gvim -f +"syn on" +"run! syntax/2html.vim" +"wq" +"q" $f; done
 
 
@@ -378,4 +420,3 @@ augroup bzip2
    autocmd FileAppendPost        *.bz2 !mv <afile> <afile>:r
    autocmd FileAppendPost        *.bz2 !bzip2 <afile>:r
 augroup END
-
