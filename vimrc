@@ -23,7 +23,7 @@ set nocompatible
 
 " TEXT SETTINGS
 
-# Use Unicode text encoding.
+" Use Unicode text encoding.
 set encoding=utf-8
 
 " Maximum width of text that is being inserted. A longer line will be broken. Zero disables this.
