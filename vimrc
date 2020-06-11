@@ -209,10 +209,10 @@ augroup END
 
 " EXTERNAL SPELL CHECK
 
-source ~/.vim.ispell
+" source ~/.vim.ispell
 
-map <C-k>   :let @_=SpellCheck()<cr>
-map! <C-k>  <ESC>:let @_=SpellCheck()<cr>i
+" map <C-k>   :let @_=SpellCheck()<cr>
+" map! <C-k>  <ESC>:let @_=SpellCheck()<cr>i
 
 
 " EXTERNAL PROGRAMS
